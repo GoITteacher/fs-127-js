@@ -6,28 +6,84 @@
  * - Цикл for...of
  * - Різниця у використанні for и for...of
  */
+//!=========================================
 
-const friends = ["Mango", "Kiwi", "Poly", "Ajax"];
-console.table(friends);
+// const salaries = [1000, 1500, 2500, 1300, 800, 1000];
+// for(let i=0;i<salaries.length;i++){
+// }
 
-for (let i = 0; i < friends.length; i += 1) {
-  friends[i] += `-${i}`;
-}
+//!=========================================
 
-console.table(friends);
+// const friends = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
+// for (const friend of friends) {
+//   console.log(friend);
+// }
 
-for (let friend of friends) {
-  console.log(friend);
-  console.log(friends);
-}
+//!=========================================
 
+// const numbers = [10, 1, 2, 3, 1, 2, 43];
+// for (let i = 0; i < numbers.length; i++) {
+//   numbers[i] *= 2;
+// }
+// console.log(numbers);
+
+//!=========================================
+// console.table(friends);
+
+// for (let i = 0; i < friends.length; i += 1) {
+//   friends[i] += `-${i}`;
+// }
+
+// console.table(friends);
+
+// for (let friend of friends) {
+//   console.log(friend);
+//   console.log(friends);
+// }
+
+//!=========================================
+
+/* 
+Якщо потрібно змінювати масив - то for
+Якщо треба йти через один елемент, або від останнього до першого - то for
+
+Якщо не плануємо змінювати, і потрібно йти від першого до останнього FOR_OF
+*/
+
+//!=========================================
+
+// const numbers = [3, 4, -5, 5, -7, -2, 4, -6, 1];
+
+// function foo(arr) {
+//   const res = [];
+
+//   for (const item of arr) {
+//     if (item > 0) {
+//       res.push(item);
+//     }
+//   }
+
+//   return res;
+// }
+
+//!=========================================
+// Напиши функцію яка приймає масив чисел і повертає суму цих чисел
+
+// const arr = [1, 5, 1, 2, 3, 5];
+// debugger;
+
+// function foo() {}
+// const x = 25;
+
+// console.log(task2(arr));
+//!=========================================
 /**
  * Напиши скрипт для обчислення площі прямокутника зі сторонами,
  * значення яких зберігаються у змінній values у вигляді рядка.
  * Значення гарантовано розділені пробілом.
  */
 
-const values = "8 11";
+// const values = '8 11';
 
 /**
  * Напиши скрипт для перебору масиву fruits.
@@ -36,4 +92,4 @@ const values = "8 11";
  * Нумерація елементів повинна починатися з 1.
  */
 
-const fruits = ["🍎", "🍇", "🍑", "🍌", "🍋"];
+// const fruits = ['🍎', '🍇', '🍑', '🍌', '🍋'];
