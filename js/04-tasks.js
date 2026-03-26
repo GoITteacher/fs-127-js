@@ -8,10 +8,14 @@
  * індексом 0 буде виведено 1 - Mango, а для індексу 2 виведе 3 - Ajax.
  */
 
-function logItems(items) {}
+// function logItems(items) {
+//   for (let i = 0; i < items.length; i++) {
+//     console.log(`${i + 1} - ${items[i]}`);
+//   }
+// }
 
-logItems(["Mango", "Poly", "Ajax"]);
-logItems(["🍎", "🍇", "🍑", "🍌", "🍋"]);
+// logItems(['Mango', 'Poly', 'Ajax']);
+// logItems(['🍎', '🍇', '🍑', '🍌', '🍋']);
 
 /**
  * Напиши функцію printInfo(names, phones) яка виводить
@@ -22,12 +26,19 @@ logItems(["🍎", "🍇", "🍑", "🍌", "🍋"]);
  * гарантовано однакова.
  */
 
-function printInfo(names, phones) {}
+// function printInfo(names, phones) {
+//   const arrNames = names.split(',');
+//   const arrPhones = phones.split(',');
 
-printInfo(
-  "Jacob,William,Solomon,Artemis",
-  "89001234567,89001112233,890055566377,890055566300"
-);
+//   for (let i = 0; i < arrNames.length; i++) {
+//     console.log(arrNames[i], arrPhones[i]);
+//   }
+// }
+
+// printInfo(
+//   'Jacob,William,Solomon,Artemis',
+//   '89001234567,89001112233,890055566377,890055566300',
+// );
 
 /**
  * Напиши функцію formatTime(minutes) яка переведе значення
@@ -35,17 +46,33 @@ printInfo(
  * та хвилин HH:MM.
  */
 
-const hours = Math.floor(totalMinutes / 60);
-const minutes = totalMinutes % 60;
-console.log(hours);
-console.log(minutes);
+//!=========================================
+function formatTime(minutesValue) {
+  const hours = Math.floor(minutesValue / 60); // 1
+  const minutes = minutesValue % 60; // 10
 
-const doubleDigitHours = String(hours).padStart(2, 0);
-const doubleDigitMinutes = String(minutes).padStart(2, 0);
-console.log(`${doubleDigitHours}:${doubleDigitMinutes}`);
+  const hoursStr = hours.toString().padStart(2, '0'); // '01'
+  const minutesStr = minutes.toString().padStart(2, '0'); // '10'
+  return `${hoursStr}:${minutesStr}`;
+}
 
-function formatTime(minutes) {}
+// console.log(formatTime(70)); // "01:10"
+// console.log(formatTime(450)); // "07:30"
+// console.log(formatTime(1800)); // "24:01"
 
-console.log(formatTime(70)); // "01:10"
-console.log(formatTime(450)); // "07:30"
-console.log(formatTime(1441)); // "24:01"
+//!=========================================
+
+// const mes = message.length;
+// if (mes <= maxLength) {
+// }
+
+//!=========================================
+
+// if (message.length <= maxLength) {
+// }
+
+//!=========================================
+
+// function foo(x1, x2, x3) {}
+
+// foo(10, 20);
