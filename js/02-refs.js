@@ -5,12 +5,59 @@
  * - Масиви і функції - це об'єкти
  */
 
-/**
- * --------------------------
- */
+//!=========================================
+// const product = {
+//   title: 'Test',
+//   price: 25,
+// };
 
-const arr = [1, 2, 3];
+// console.log(product.price);
 
-function foo() {
-  console.log("hello");
-}
+//!=========================================
+
+// const user = {
+//   firstName: 'Vasya',
+//   lastName: 'Vasylenko',
+// };
+
+// const user2 = user;
+
+// user2.firstName = 'Roman';
+
+// console.log(user);
+// console.log(user2);
+
+// console.log(user === user2);
+
+//!=========================================
+
+// const user1 = {
+//   firstName: 'Vasya',
+//   lastName: 'Vasylenko',
+// };
+// const user2 = {
+//   firstName: 'Vasya',
+//   lastName: 'Vasylenko',
+// };
+
+// console.log(user1 === user2);
+//!=========================================
+
+// const arr = [1, 2, 3];
+
+// arr.hello = 'Hello world';
+
+// console.log(arr);
+// console.log(arr.hello);
+
+//!=========================================
+// function foo() {
+//   console.log('hello');
+// }
+// const copy = foo;
+
+// foo();
+// copy();
+
+// foo.testKey = 'Hello Test Key';
+// console.dir(foo);
