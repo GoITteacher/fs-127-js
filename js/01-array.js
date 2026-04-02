@@ -5,35 +5,78 @@
  * - Пошук об'єкта за значенням властивості
  * - Колекція значень властивості
  */
-
+//!=========================================
 const friends = [
-  { name: "Mango", online: false },
-  { name: "Kiwi", online: true },
-  { name: "Poly", online: false },
-  { name: "Ajax", online: false },
+  { name: 'Mango', online: false },
+  { name: 'Kiwi', online: true },
+  { name: 'Poly', online: false },
+  { name: 'Roman', online: true },
+  { name: 'Mila', online: false },
+  { name: 'Valera', online: true },
 ];
 
-console.table(friends);
+// function getOnlineUsers() {
+//   const res = [];
+//   for (const item of friends) {
+//     if (item.online) {
+//       res.push(item);
+//     }
+//   }
+//   return res;
+// }
 
+//!=========================================
+
+//!=========================================
+
+// console.table(friends);
+
+// for (const item of friends) {
+//   console.log(item.name);
+// }
+//!=========================================
 /**
  * Пошук друга за іменем
  */
-function findFriendByName(allFriends, friendName) {}
+// function findFriendByName(allFriends, friendName) {
+//   for (const item of allFriends) {
+//     if (item.name === friendName) {
+//       return item;
+//     }
+//   }
+// }
 
-// console.log(findFriendByName(friends, "Poly"));
-// console.log(findFriendByName(friends, "Chelsy"));
+// console.log(findFriendByName(friends, 'Poly'));
+// console.log(findFriendByName(friends, 'Chelsy'));
 
 /**
  * Отримуємо імена всіх лрузів
  */
-function getAllNames(allFriends) {}
+
+// function getAllNames(allFriends) {
+//   const res = [];
+
+//   for (const item of allFriends) {
+//     res.push(item.name);
+//   }
+
+//   return res;
+// }
 
 // console.log(getAllNames(friends));
 
 /**
  * Отримуємо імена тільки тих друзів, які зараз онлайн
  */
-function getOnlineFriends(allFriends) {}
+// function getOnlineFriends(allFriends) {
+//   const res = [];
+//   for (const item of allFriends) {
+//     if (item.online) {
+//       res.push(item.name);
+//     }
+//   }
+//   return res;
+// }
 
 // console.log(getOnlineFriends(friends));
 
@@ -45,8 +88,20 @@ function getOnlineFriends(allFriends) {}
  */
 
 const stones = [
-  { name: "Смарагд", price: 1300, quantity: 4 },
-  { name: "Діамант", price: 2700, quantity: 3 },
-  { name: "Сапфір", price: 400, quantity: 7 },
-  { name: "Щебінь", price: 200, quantity: 2 },
+  { name: 'Смарагд', price: 1300, quantity: 4 },
+  { name: 'Діамант', price: 2700, quantity: 3 },
+  { name: 'Сапфір', price: 400, quantity: 7 },
+  { name: 'Щебінь', price: 200, quantity: 2 },
 ];
+
+// function calcTotalPrice(stones, stoneName) {
+//   for (const item of stones) {
+//     if (item.name === stoneName) {
+//       return item.price * item.quantity;
+//     }
+//   }
+
+//   return 0;
+// }
+
+// console.log(calcTotalPrice(stones, 'Щебінь'));

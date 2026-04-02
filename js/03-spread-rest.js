@@ -8,56 +8,119 @@
  * - Створення об'єкта
  */
 
-const numbers = [];
+//!=========================================
+// const arr1 = [1, 2, 3];
+// const arr2 = [4, 5, 6];
+// const arr3 = [7, 8, 9];
+
+// const res = [...arr3, ...arr3, ...arr1];
+
+// console.log(res);
+
+// ...arr1 -> 1, 2, 3,  4, 5, 6,  7, 8, 9
+
+//!=========================================
+
+// const objA = {
+//   x1: 10,
+//   x2: 20,
+//   x3: 30,
+// };
+
+// const objB = {
+//   y1: 10,
+//   y2: 20,
+//   y3: 30,
+// };
+
+// const res = {
+//   ...objA,
+//   ...objB,
+// };
+
+// console.log(res);
+
+//!=========================================
+
+// const copy = { ...objA };
+// const arr = [1, 5, 41, 3, 5, 6, 1];
+// const res = [...arr, 10];
+// const copy = [...arr];
+//!=========================================
+
 // console.log(numbers);
 
 /**
  * Пошук найменшої аьо найбільшої температури (числа)
  */
-const temps = [18, 14, 12, 21, 17, 29, 24];
+// const temps = [18, 14, 12, 21, 17, 29, 24];
+// console.log(Math.max(...temps));
+// Math.min(...temps);
 
-/**
- * Створення масиву і тип за посиланням
- */
+//!=========================================
+// /**
+//  * Створення масиву і тип за посиланням
+//  */
 const a = [{ x: 1 }, { y: 2 }, { z: 3 }];
-const b = a;
+const b = [...a];
 
-// console.log("a: ", a);
-// console.log("b: ", b);
+b[0].x = 225;
 
-/*
- * Поєднуємо кілька масивів в один через spread
- */
-const lastWeekTemps = [1, 2, 3];
-const currentTemps = [4, 5, 6];
-const nextWeekTemps = [7, 8, 9];
+console.log('a: ', a);
+console.log('b: ', b);
 
-const allTemps = [];
-// console.log(allTemps);
+// /*
+//  * Поєднуємо кілька масивів в один через spread
+//  */
+// const lastWeekTemps = [1, 2, 3];
+// const currentTemps = [4, 5, 6];
+// const nextWeekTemps = [7, 8, 9];
 
-/*
- * Створення об'єкта
- */
-const objA = { x: 1, y: 2 };
-const objB = { x: 0, z: 3 };
-const objC = {};
+// const allTemps = [];
+// // console.log(allTemps);
 
-// console.log(objC);
+// /*
+//  * Створення об'єкта
+//  */
+// // const objA = { x: 1, y: 2 };
+// // const objB = { x: 0, z: 3 };
+// // const objC = {};
 
-/**
- * Оновлюємо налаштування користувача
- */
-const defaultSettings = {
-  theme: "light",
-  showNotifications: true,
-  hideSidebar: false,
-};
+// // console.log(objC);
 
-const userSettings = {
-  showNotifications: false,
-  hideSidebar: true,
-};
+// /**
+//  * Оновлюємо налаштування користувача
+//  */
+// const defaultSettings = {
+//   theme: 'light',
+//   showNotifications: true,
+//   hideSidebar: false,
+// };
 
-const finalSettings = {};
+// const userSettings = {
+//   showNotifications: false,
+//   hideSidebar: true,
+// };
 
-// console.log(finalSettings);
+// const finalSettings = {};
+
+// // console.log(finalSettings);
+
+//!=========================================
+
+// function foo(x1, x2, x3, ...arr) {
+//   console.log(x1, x2);
+//   console.log(arr);
+// }
+
+// foo(10, 20, 30, 40, 50, 2, 3, 4, 1, 3, 4, 5, 21, 1, 2, 3, 12, 312, 41, 23);
+
+//!=========================================
+
+// const arr = [1,2,3,4,5]
+// ...arr
+
+//!=========================================
+// const x1 = 10;
+// function foo(x1, x2, x3, ...arr) {}
+// function getMax(...values) {}
