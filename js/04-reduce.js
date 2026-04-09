@@ -4,10 +4,27 @@
  * - Поелементно перебирає оригінальний масив
  * - Значення, що повертається, залежить від розробника
  */
+//!=========================================
+const numbers = [2, 8, 6, 1, 5];
 
-const numbers = [5, 10, 15, 20, 25];
-const total = numbers;
-console.log(total);
+const res1 = numbers.reduce((arr, el) => {
+  if (el % 2 === 0) {
+    arr.push(el);
+  }
+  return arr;
+}, []);
+
+console.log(res1);
+
+const res = numbers.reduce((acc, el) => {
+  return acc * el;
+}, 1);
+
+console.log(res);
+//!=========================================
+
+// const total = numbers;
+// console.log(total);
 
 /**
  * Рахуємо загальну зарплату
@@ -19,7 +36,11 @@ const salary = {
   ajax: 150,
 };
 
-const totalSalary = salary;
+const values = Object.values(salary);
+
+const totalSalary = values.reduce((sum, el) => {
+  return sum + el;
+}, 0);
 console.log(totalSalary);
 
 /**
@@ -27,24 +48,31 @@ console.log(totalSalary);
  */
 
 const players = [
-  { id: "player-1", name: "Mango", timePlayed: 310, online: false },
-  { id: "player-2", name: "Poly", timePlayed: 470, online: true },
-  { id: "player-3", name: "Kiwi", timePlayed: 230, online: true },
-  { id: "player-4", name: "Ajax", timePlayed: 150, online: false },
-  { id: "player-5", name: "Chelsey", timePlayed: 80, online: true },
+  { id: 'player-1', name: 'Mango', timePlayed: 310, online: false },
+  { id: 'player-2', name: 'Poly', timePlayed: 470, online: true },
+  { id: 'player-3', name: 'Kiwi', timePlayed: 230, online: true },
+  { id: 'player-4', name: 'Ajax', timePlayed: 150, online: false },
+  { id: 'player-5', name: 'Chelsey', timePlayed: 80, online: true },
 ];
 
-const totalTimePlayed = players;
-console.log(totalTimePlayed);
+// const totalTimePlayed = players.reduce((acc, player) => {
+//   return acc + player.timePlayed;
+// }, 0);
+
+// console.log(totalTimePlayed);
 
 /**
  * Рахуємо загальну суму товарів кошика
  */
 const cart = [
-  { label: "Apples", price: 100, quantity: 2 },
-  { label: "Bananas", price: 120, quantity: 3 },
-  { label: "Lemons", price: 70, quantity: 4 },
+  { label: 'Apples', price: 100, quantity: 2 },
+  { label: 'Bananas', price: 120, quantity: 3 },
+  { label: 'Lemons', price: 70, quantity: 4 },
 ];
 
-const totalAmount = cart;
-console.log(totalAmount);
+const totalAmount = cart.reduce((acc, item) => {
+  return acc + item.quantity * item.price;
+}, 0);
+// console.log(totalAmount);
+
+//!=========================================
