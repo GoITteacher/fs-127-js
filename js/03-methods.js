@@ -6,84 +6,166 @@
  * - Метод bind
  */
 
-const showThis = function (a, b, arr) {
-  console.log(a, b, arr);
-  console.log("showThis -> this", this);
+//!=========================================
+// const user1 = {
+//   name: 'Vasya',
+//   age: 25,
+//   showThis() {
+//     console.log(this);
+//   },
+// };
+
+// const user2 = {
+//   name: 'Borys',
+//   age: 27,
+// };
+
+// const user3 = {
+//   name: 'Roman',
+//   age: 27,
+// };
+
+//!=========================================
+
+// function setColor(newColor) {
+//   this.color = newColor;
+// }
+
+// const iphone = {
+//   model: 'Iphone 13',
+//   color: 'black',
+//   price: 15000,
+// };
+
+// const user = {};
+
+// setColor.call(iphone, 'red');
+// setColor.call(user, 'red');
+
+// console.log(iphone);
+// console.log(user);
+
+//!=========================================
+// user1.showThis();
+// user1.showThis.call(user2);
+// user1.showThis();
+// user1.showThis.call(user3);
+// user1.showThis();
+
+//!=========================================
+
+// function setRgb(red, green, blue) {
+//   this.red = red;
+//   this.green = green;
+//   this.blue = blue;
+// }
+
+// const primaryColor = {};
+
+// const red = 10;
+// const green = 20;
+// const blue = 30;
+// setRgb.call(primaryColor, red, green, blue);
+
+//!=========================================
+// const rgb = [10, 20, 30];
+// setRgb.apply(primaryColor, rgb);
+// console.log(primaryColor);
+
+//!=========================================
+const myObj = {
+  name: 'Vasya',
 };
 
-showThis();
+function showThis() {
+  //this = myObj
+  console.log(this);
+}
 
-const objA = {
-  a: 5,
-  b: 10,
-};
+const copy = showThis.bind(myObj);
 
-showThis.call(objA, 5, 1, [100, 200, 300]);
-showThis.apply(objA, [5, 1, [100, 200, 300]]);
+//!=========================================
 
-const objB = {
-  x: 788,
-  y: 25,
-};
+// const changeColor = function (color) {
+//   console.log('changeColor -> this', this);
+//   this.color = color;
+// };
 
-showThis.call(objB, 1, 1, 2);
-showThis.apply(objB, [1, 1, 2]);
+// const hat = {
+//   color: 'black',
+//   name: 'Hat',
+// };
 
-showThis();
+// const sweater = {
+//   color: 'green',
+//   name: 'sweater',
+// };
 
-/**
- * -------------------------------
- */
-const changeColor = function (color) {
-  console.log("changeColor -> this", this);
-  this.color = color;
-};
+// const changeHatColor = changeColor.bind(hat);
+// changeHatColor('Red');
+// console.log(hat);
 
-const hat = {
-  color: "black",
-};
+// const changeSweaterColor = changeColor.bind(sweater);
+// changeSweaterColor('black');
 
-changeColor.call(hat, "orange");
-console.log(hat);
+//!=========================================
+// const changeHatColor = changeColor.bind(hat);
+// const changeSweaterColor = changeColor.bind(sweater);
 
-const sweater = {
-  color: "green",
-};
+// changeHatColor('yellow');
+// console.log(hat);
 
-changeColor.call(sweater, "blue");
-console.log(sweater);
+// changeSweaterColor('red');
+// console.log(sweater);
 
-/**
- * -------------------------------
- */
-const changeHatColor = changeColor.bind(hat);
-const changeSweaterColor = changeColor.bind(sweater);
+//!=========================================
+// const counter = {
+//   value: 0,
+//   increment(value) {
+//     console.log('increment -> this', this);
+//     this.value += value;
+//   },
+//   decrement(value) {
+//     console.log('decrement -> this', this);
+//     this.value -= value;
+//   },
+// };
 
-changeHatColor("yellow");
-console.log(hat);
+// const updateCounter = function (value, operation) {
+//   operation(value);
+// };
 
-changeSweaterColor("red");
-console.log(sweater);
+// updateCounter(10, counter.increment.bind(counter));
+// updateCounter(5, counter.decrement.bind(counter));
+// console.log(counter);
 
-/**
- * -------------------------------
- */
-const counter = {
-  value: 0,
-  increment(value) {
-    console.log("increment -> this", this);
-    this.value += value;
-  },
-  decrement(value) {
-    console.log("decrement -> this", this);
-    this.value -= value;
-  },
-};
+//!=========================================
 
-const updateCounter = function (value, operation) {
-  operation(value);
-};
+// const store = {
+//   productsAmount: 0,
+//   price: 1000,
+//   incrementProducts() {
+//     this.productsAmount += 10;
+//   },
+// };
 
-updateCounter(10, counter.increment.bind(counter));
-updateCounter(5, counter.decrement.bind(counter));
-console.log(counter);
+// const incProducts = store.incrementProducts.bind(store);
+
+// incProducts();
+// incProducts();
+// incProducts();
+// incProducts();
+
+//!=========================================
+
+//
+//
+//
+//
+// 7 - bind
+// 5 - call apply
+// 3 - контекст обєкту (той обєкт що зліва)
+// 1 - глобальний this (undefined)
+
+// const copy = foo.bind(user3);
+// copy.call(user2);

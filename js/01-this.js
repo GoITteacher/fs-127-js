@@ -5,82 +5,112 @@
  * - Глобальний контекст
  * - Контекст методу об'єкта
  */
+//!=========================================
 
+// function foo() {
+//     this =
+//   console.log(this);
+// }
+// foo();
+
+//!=========================================
 /**
  * Глобальний контекст
  */
-function foo() {
-  console.log("foo -> this", this);
-}
 
-foo();
+// function foo() {
+//   console.log(this);
+// }
 
+// foo(); // undefined || window
+
+//!=========================================
 /**
  * Контекст методу об'єкта
  */
 
-const user = {
-  tag: "Mango",
-  showTag() {
-    console.log("showTag -> this", this);
-  },
-};
+// const user = {
+//   name: 'Vasya',
+//   showThis() {
+//     console.log(this);
+//   },
+// };
 
-user.showTag();
+// user.showThis();
 
+//!=========================================
 /**
- * Контекст методу об'єкта, но объявлена как внешняя функция.
+ * Контекст методу об'єкта, але оголошено як зовнішню функцію.
  */
 
-function showTag() {
-  console.log("showTag -> this", this);
-  console.log("showTag -> this.tag", this.tag);
-}
+// function showThis() {
+//   console.log(this);
+// }
 
-showTag();
+// const user = {
+//   name: 'Vasya',
+//   foo: showThis,
+// };
 
-const mango = {
-  tag: "Mango",
-};
-
-mango.showUserTag = showTag;
-console.log("mango", mango);
-
-mango.showUserTag();
+// user.foo()
+// showThis()
+//!=========================================
 
 /**
- * Вызов без контекста, но объявлена как метод объекта.
+ * Виклик без контексту, але оголошено як метод об'єкта.
  */
 
-const poly = {
-  tag: "Poly",
-  showTag() {
-    console.log("showTag -> this", this);
-    console.log("showTag -> this.tag", this.tag);
-  },
-};
+// const user = {
+//   name: 'Vasya',
+//   showThis() {
+//     console.log(this);
+//   },
+// };
 
-poly.showTag();
+// const foo = user.showThis;
 
-const outerShowTag = poly.showTag;
+// foo();
 
-outerShowTag();
-
+//!=========================================
 /**
- * Контекст в callback-функциях
+ * Контекст у callback-функціях
  */
 
-const jacob = {
-  tag: "Jacob",
-  showTag() {
-    console.log("showTag -> this", this);
-    console.log("showTag -> this.tag", this.tag);
-  },
-};
+// function foo(callback) {
+//   const obj = {
+//     name: 'Vasya',
+//     copy: callback,
+//   };
+//   obj.copy();
+// }
 
-function invokeAction(action) {
-  console.log(action);
-  action();
-}
+// function showThis() {
+//   console.log(this);
+// }
 
-invokeAction(jacob.showTag);
+// foo(showThis);
+
+//!=========================================
+
+// Якщо це звичайна функція, то шукаємо де вона викликається і дивимось на обєкт зліва
+
+//!=========================================
+// const user = {
+//   name: 'Vasya',
+//   age: 25,
+//   showProps: () => {
+//     this.name;
+//     this.age;
+//   },
+// };
+
+// const user = {
+//   name: 'Vasya',
+//   age: 25,
+//   showProps() {
+//     this.name;
+//     this.age;
+//   },
+// };
+
+// user.showProps();
