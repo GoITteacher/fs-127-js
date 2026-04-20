@@ -78,3 +78,5 @@ x();
 
 const x1 = a => {};
 const x2 = (x, y) => x ** y;
+
+const arrow = (x1, x2) => x1 * x2;

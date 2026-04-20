@@ -6,6 +6,32 @@
  */
 
 //!=========================================
+// MAP - коли хочемо змінити кожен елемент
+// FILTER - коли треба ЗНАЙТИ БАГАТО елементів
+// FIND - коли треба ЗНАЙТИ ОДИН елемент
+// SOME - коли треба ПЕРЕВІРИТИ ОДИН елемент (відповіють так або ні)
+// EVERY - коли треба ПЕРЕВІРИТИ КОЖЕН елемент (відповіють так або ні)
+
+//!=========================================
+// const users = [];
+// const names = [];
+
+// users.map((user, i) => {});
+// names.map((name, i) => {});
+// users.filter((user, i) => {});
+// user.findIndex((user, i) => {});
+
+// arr.forEach(() => {});
+// arr.map(() => {});
+// arr.filter(() => {});
+// arr.find(callback);
+// arr.findIndex(callback);
+// arr.some(callback);
+// arr.every(callback);
+// arr.reduce(callback);
+// arr.sort(callback);
+
+//!=========================================
 
 // const numbers = [3, 9, 2, 8, 5];
 

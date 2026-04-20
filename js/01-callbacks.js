@@ -7,13 +7,60 @@
  */
 //!=========================================
 
+// function x(t1,t2){}
+// function foo(value){
+//   value(10,20)
+// }
+// foo(x)
+
+//!=========================================
 // const x = function(){};
 
 // function foo(value) {
 //   console.log(value);
 // }
 
-// foo(x);
+function myDay(money, dayInstruction) {
+  console.log('Прокинутись');
+  console.log('Зібратись до школи');
+  console.log('Піти до школи');
+  console.log(`Витратити ${money} на обід`);
+  console.log('Повернутись зі школи');
+  dayInstruction();
+  console.log('Зробити уроки');
+  console.log('Відпочивати');
+}
+
+function goToMusicSchool() {
+  console.log('Піти до муз школи');
+  console.log('Повернутись з муз школи');
+}
+
+function goToDanceSchool() {
+  console.log('Піти до школи танців');
+  console.log('Повернутись з школи танців');
+}
+
+function goToMusicAndDanceSchool() {
+  console.log('Піти до муз школи');
+  console.log('Повернутись з муз школи');
+  console.log('Піти до школи танців');
+  console.log('Повернутись з школи танців');
+}
+
+function goToStore() {
+  console.log('Піти до магазину');
+}
+
+// myDay(200, goToMusicSchool);
+// myDay(200, goToDanceSchool);
+// myDay(200, goToMusicAndDanceSchool);
+// myDay(200, () => {
+//   console.log('Їдемо до бабулі');
+// });
+// myDay(100, ()=>{
+//   console.log()
+// })
 
 //!=========================================
 
@@ -23,7 +70,6 @@
 //   console.log('Піти до школи');
 //   console.log(`Витратити ${money} на обід`);
 //   console.log('Повернутись зі школи');
-//   callback();
 //   console.log('Зробити уроки');
 //   console.log('Відпочивати');
 // }
@@ -66,9 +112,17 @@
  */
 //!=========================================
 // function calc(a, b, callback) {
-//   const res = callback(a, b);
-//   console.log(a, b, res);
+//   const res = sum(a, b);
+//   console.log('Result:', res);
 // }
+
+// calc(10, 20, (a, b) => {
+//   return a * b - 10;
+// });
+
+// calc(5, 5, (x1, x2) => {
+//   return x1 * x2;
+// });
 
 // function sum(a, b) {
 //   return a + b;
@@ -119,15 +173,15 @@
 
 //!=========================================
 
-function validateString(str) {
-  return str.toLowerCase().slice(0, 10);
-}
+// function validateString(str) {
+//   return str.toLowerCase().slice(0, 10);
+// }
 
-const res1 = each(
-  ['Hello world', 'My test long message', 'Test short message'],
-  validateString,
-);
-console.log(res1);
+// const res1 = each(
+//   ['Hello world', 'My test long message', 'Test short message'],
+//   validateString,
+// );
+// console.log(res1);
 
 //!=========================================
 // console.log(
@@ -155,3 +209,10 @@ console.log(res1);
 //     return Math.floor(value);
 //   })
 // );
+
+//!=========================================
+// const arr = [10, 2, 4, 5, 1];
+
+// arr.forEach((item, index) => {
+//   console.log(index, item);
+// });
