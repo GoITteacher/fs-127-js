@@ -12,6 +12,15 @@
 // SOME - коли треба ПЕРЕВІРИТИ ОДИН елемент (відповіють так або ні)
 // EVERY - коли треба ПЕРЕВІРИТИ КОЖЕН елемент (відповіють так або ні)
 
+// users.filter(item => item.age > 10);
+// users.filter(user => user.balance > 100);
+
+// arr.map((item, idx) => {});
+// arr.filter((item, idx) => {});
+// arr.filter((item, idx) => {});
+// arr.filter((item, idx) => {});
+// arr.filter((item, idx) => {});
+
 //!=========================================
 // const users = [];
 // const names = [];
