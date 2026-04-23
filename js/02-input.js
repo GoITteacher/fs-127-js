@@ -4,10 +4,27 @@
  *
  * Виводь в консоль все що користувач вводить в input
  */
+//!=========================================
+// const inputNameElem = document.querySelector('.js-user-name');
+// const userNameSpan = document.querySelector('.js-username');
 
-const userName = document.querySelector('.js-user-name');
+// inputNameElem.addEventListener('input', e => {
+//   userNameSpan.textContent = e.currentTarget.value;
+// });
 
-/**
- * Користувач вводить в input своє ім'я після втрати
- * фокусу отримує alert з повідомленням-привітанням
- */
+//!=========================================
+
+const inputNameElem = document.querySelector('.js-user-name');
+
+inputNameElem.addEventListener('blur', e => {
+  const value = inputNameElem.value;
+
+  if (value.length < 6) {
+    inputNameElem.classList.add('invalid-input');
+  }
+});
+
+inputNameElem.addEventListener('focus', e => {
+  console.log('REMOVE Classs');
+  inputNameElem.classList.remove('invalid-input');
+});
