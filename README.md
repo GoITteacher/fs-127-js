@@ -4,10 +4,9 @@
 
 2. Розберемо:
 
-- terminal
+- terminal (pwd, cd, mkdir, touch, rm -rf, mv, ls)
 - node-js / CLI
 - npm
-
   - init
   - install
   - dependencies
