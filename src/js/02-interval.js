@@ -2,16 +2,19 @@
  * Метод setInterval(callback, delay, args)
  */
 
-const logger = (time) => {
-  console.log(`Лог кожні ${time} мс - ${Date.now()}`);
-};
-
-console.log("До виклику setInterval");
-
-console.log("Після виклику setInterval");
+// setInterval(function () {
+//   console.log('Hello interval');
+// }, 2000);
 
 /*
  * Очищення інтервалу за допомогою clearInterval(intervalId)
  */
 
-const intervalId = setInterval(logger, 2000, 2000);
+// const intervalId = setInterval(() => {
+//   console.log('Hello');
+// }, 1000);
+
+// document.addEventListener('click', () => {
+//   console.log('click');
+//   clearInterval(intervalId);
+// });
