@@ -23,3 +23,53 @@
 const startBtn = document.querySelector('.start-btn');
 const container = document.querySelector('.container');
 const result = document.querySelector('.result');
+
+console.log(container.children);
+
+function createPromise(delay) {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (Math.random() > 0.7) {
+        resolve('🤑');
+      } else {
+        reject('👿');
+      }
+    }, delay);
+  });
+
+  return promise;
+}
+
+startBtn.addEventListener('click', () => {
+  result.textContent = '';
+  container.children[0].textContent = '';
+  container.children[1].textContent = '';
+  container.children[2].textContent = '';
+
+  const promises = [];
+
+  for (let i = 0; i < 3; i++) {
+    const promise = createPromise((i + 1) * 300);
+
+    promise
+      .then(res => {
+        container.children[i].textContent = res;
+      })
+      .catch(res => {
+        container.children[i].textContent = res;
+      });
+
+    promises.push(promise);
+  }
+
+  Promise.allSettled(promises).then(res => {
+    const isWinner = res.every(elem => elem.status === 'fulfilled');
+    if (isWinner) {
+      result.textContent =
+        'Ви перемогли, Вам сьогодні щастить. Можете спробувати ще раз';
+    } else {
+      result.textContent =
+        'Не цього разу, Можете спробувати ще раз, вам обовязково пощастить';
+    }
+  });
+});
