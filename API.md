@@ -10,7 +10,7 @@
 1. [Instagram User Info](https://rapidapi.com/Glavier/api/instagram191/)
 1. [User Generator](https://rapidapi.com/mrsonj/api/random-username-generate)
 1. [Youtube Video Idea](https://rapidapi.com/apis-world-apis-world-default/api/youtube-video-idea/)
-1. [IP GEO](https://rapidapi.com/xakageminato/api/ip-geolocation-ipwhois-io/)
+1. [IP GEO](https://ip-api.com/docs/api%3Ajson?utm_source=chatgpt.com)
 1. [TRANSLATE 3](https://rapidapi.com/translated/api/mymemory-translation-memory/)
 1. [WEATHER](https://rapidapi.com/weatherbit/api/weather/)
 1. [FREE NEWS](https://rapidapi.com/newscatcher-api-newscatcher-api-default/api/free-news/)
