@@ -17,3 +17,15 @@
 1. [RICK and MORTY](https://rickandmortyapi.com/api/character/4)
 1. [QR CODE GENERATOR](https://rapidapi.com/flowcode/api/flowcode1/)
 1. [QR CODE GENERATOR 2](https://rapidapi.com/jsavajols/api/getqrcode/)
+
+---
+
+https://q10gsl5s9d.execute-api.us-east-1.amazonaws.com/docs
+
+https://books-backend.p.goit.global/api-docs/
+
+https://drinkify.b.goit.study/api-docs/
+
+https://tasty-treats-backend.p.goit.global/api-docs/
+
+https://food-boutique.b.goit.study/api-docs/

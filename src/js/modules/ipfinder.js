@@ -3,27 +3,28 @@ const refs = {
   cardInfo: document.querySelector('.js-ip-form'),
 };
 
+//!=========================================
+
 refs.formEl.addEventListener('submit', e => {
   e.preventDefault();
-
-  const ip = e.target.elements.userip.value;
-
-  getInfoByIp(ip).then(data => {
-    renderIp(data);
+  const formData = new FormData(e.target);
+  const userIp = formData.get('userip');
+  getIpInfo(userIp).then(res => {
+    const markup = templateIp(res);
+    refs.cardInfo.innerHTML = markup;
   });
 });
 
-function getInfoByIp(ip) {
-  const BASE_URL = 'http://ip-api.com/json/';
-  const FIELDS =
-    '?fields=status,message,country,countryCode,regionName,city,timezone,lat,lon,currency,isp,query';
-
-  const url = BASE_URL + ip + FIELDS;
-
+//!=========================================
+function getIpInfo(ip) {
+  const BASE_URL = 'http://ip-api.com';
+  const END_POINT = `/json/${ip}`;
+  const url = `${BASE_URL}${END_POINT}`;
   return fetch(url).then(res => res.json());
 }
 
-function renderIp({
+//!=========================================
+function templateIp({
   country,
   countryCode,
   city,
@@ -95,5 +96,5 @@ function renderIp({
     </div>
   `;
 
-  refs.cardInfo.innerHTML = markup;
+  return markup;
 }
