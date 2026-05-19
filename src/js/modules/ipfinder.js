@@ -46,12 +46,15 @@ function renderIp({
   const flag = `https://flagsapi.com/${countryCode}/flat/64.png`;
 
   const markup = `
-    <div class="info-item">
+  <div class="info-item">
       <img
         class="flag"
         src="${flag}"
         alt="Flag of ${country}"
       />
+    </div>
+    <div class="info-item">
+      
       <span class="info-label">Country:</span>
       <span class="info-value">${country}</span>
     </div>
