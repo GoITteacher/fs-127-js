@@ -24,7 +24,7 @@ refs.resetForm.addEventListener('submit', onResetBook);
 refs.updateForm.addEventListener('submit', onUpdateBook);
 
 //!=========================================
-function onCreateBook(e) {
+async function onCreateBook(e) {
   e.preventDefault();
   const borys = new FormData(e.target);
 
@@ -34,52 +34,17 @@ function onCreateBook(e) {
     desc: borys.get('desc'),
   };
 
-  createBook(bookData)
-    .then(newBook => {
-      const markup = bookTemplate(newBook);
-      refs.container.insertAdjacentHTML('afterbegin', markup);
-    })
-    .catch(err => {});
+  try {
+    const newBook = await createBook(bookData);
+    const markup = bookTemplate(newBook);
+    refs.container.insertAdjacentHTML('afterbegin', markup);
+  } catch {}
 
   e.target.reset();
 }
 //!=========================================
 
-function onResetBook(e) {
-  e.preventDefault();
-
-  const borys = new FormData(e.target);
-
-  const id = borys.get('bookId');
-
-  const bookData = {
-    title: borys.get('title'),
-    author: borys.get('author'),
-    desc: borys.get('desc'),
-  };
-
-  resetBook(id, bookData)
-    .then(newBook => {
-      const oldBookElem = document.querySelector(`li[data-id="${id}"]`);
-      console.log(oldBookElem);
-
-      const newMarkup = bookTemplate(newBook);
-      oldBookElem.outerHTML = newMarkup;
-    })
-    .catch(err => {
-      console.log(err);
-      iziToast.error({
-        title: 'Error',
-        message: 'Something went wrong',
-        position: 'topRight',
-      });
-    });
-
-  e.target.reset();
-}
-
-//!=========================================
-function onUpdateBook(e) {
+async function onResetBook(e) {
   e.preventDefault();
 
   const borys = new FormData(e.target);
@@ -92,45 +57,77 @@ function onUpdateBook(e) {
     desc: borys.get('desc'),
   };
 
-  updateBook(id, bookData)
-    .then(newBook => {
-      const oldBookElem = document.querySelector(`li[data-id="${id}"]`);
-      const newMarkup = bookTemplate(newBook);
-      oldBookElem.outerHTML = newMarkup;
-    })
-    .catch(err => {
-      console.log(err);
-      iziToast.error({
-        title: 'Error',
-        message: 'Illegal operation',
-        position: 'topRight',
-      });
+  try {
+    const newBook = await resetBook(id, bookData);
+    const oldBookElem = document.querySelector(`li[data-id="${id}"]`);
+    console.log(oldBookElem);
+    const newMarkup = bookTemplate(newBook);
+    oldBookElem.outerHTML = newMarkup;
+  } catch {
+    console.log(err);
+    iziToast.error({
+      title: 'Error',
+      message: 'Something went wrong',
+      position: 'topRight',
     });
+  }
+
+  e.target.reset();
+}
+
+//!=========================================
+async function onUpdateBook(e) {
+  e.preventDefault();
+
+  const borys = new FormData(e.target);
+
+  const id = borys.get('bookId');
+
+  const bookData = {
+    title: borys.get('title'),
+    author: borys.get('author'),
+    desc: borys.get('desc'),
+  };
+
+  try {
+    const newBook = await updateBook(id, bookData);
+    const oldBookElem = document.querySelector(`li[data-id="${id}"]`);
+    const newMarkup = bookTemplate(newBook);
+    oldBookElem.outerHTML = newMarkup;
+  } catch {
+    console.log(err);
+    iziToast.error({
+      title: 'Error',
+      message: 'Illegal operation',
+      position: 'topRight',
+    });
+  }
 
   e.target.reset();
 }
 
 //!=========================================
 
-refs.container.addEventListener('click', e => {
+refs.container.addEventListener('click', async e => {
   if (!e.target.classList.contains('book-delete-button')) {
     return;
   }
 
   const id = e.target.dataset.id;
-  deleteBook(id)
-    .then(() => {
-      e.target.closest('li').remove();
-    })
-    .catch(err => {});
+
+  await deleteBook(id);
+  e.target.closest('li').remove();
 });
 
 //!=========================================
-document.addEventListener('DOMContentLoaded', () => {
-  getBooks().then(response => {
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const response = await getBooks();
     const markup = booksTemplate(response.items);
     refs.container.innerHTML = markup;
-  });
+  } catch {}
+
+  console.log('FINNALY');
 });
 
 //!=========================================

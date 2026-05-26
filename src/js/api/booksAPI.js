@@ -6,31 +6,29 @@ const axiosInstance = axios.create({
   params: { testParam: 'TOKEN' },
 });
 
-export const getBookById = () => {};
-
-export const getBooks = () => {
-  const res = axiosInstance.get('/books');
-  return res.then(res => res.data);
+export const getBooks = async () => {
+  const res = await axiosInstance.get('/books');
+  return res.data;
 };
 
-export const createBook = bookData => {
-  const res = axiosInstance.post('/books', bookData);
-  return res.then(res => res.data);
+export const createBook = async bookData => {
+  const res = await axiosInstance.post('/books', bookData);
+  return res.data;
 };
 
-export const updateBook = (id, body) => {
-  const res = axiosInstance.patch(`/books/${id}`, body);
-  return res.then(res => res.data);
+export const updateBook = async (id, body) => {
+  const res = await axiosInstance.patch(`/books/${id}`, body);
+  return res.data;
 };
 
-export const resetBook = (id, body) => {
-  const res = axiosInstance.put(`/books/${id}`, body);
-  return res.then(res => res.data);
+export const resetBook = async (id, body) => {
+  const res = await axiosInstance.put(`/books/${id}`, body);
+  return res.data;
 };
 
-export const deleteBook = id => {
-  const res = axiosInstance.delete(`/books/${id}`);
-  return res.then(res => res.data);
+export const deleteBook = async id => {
+  const res = await axiosInstance.delete(`/books/${id}`);
+  return res.data;
 };
 
 //!=========================================
