@@ -1,4 +1,3 @@
-import iziToast from 'izitoast';
 import { fetchArticles } from './modules/newsAPI';
 import { articlesTemplate } from './templates/render-function2';
 
@@ -11,61 +10,63 @@ const refs = {
 
 //!=========================================
 
-const PER_PAGE = 8;
+const PER_PAGE = 10;
 let query;
-let currentPage;
+let page;
 let totalPages;
 
 //!=========================================
 
 refs.formElem.addEventListener('submit', async e => {
   e.preventDefault();
-  const formData = new FormData(e.target);
-  query = formData.get('query').trim();
-  currentPage = 1;
+  const borys = new FormData(e.target);
+  query = borys.get('query');
+  page = 1;
 
-  if (query === '') {
-    iziToast.error('Заповніть усі поля');
-    return;
+  try {
+    const res = await fetchArticles(query, page);
+    const markup = articlesTemplate(res.articles);
+    refs.articleListElem.innerHTML = markup;
+    totalPages = Math.ceil(res.totalResults / PER_PAGE);
+  } catch {
+    console.log('Error');
   }
 
-  vasya.unobserve(refs.targetElem);
-
-  const res = await fetchArticles(query, currentPage);
-  const markup = articlesTemplate(res.articles);
-  refs.articleListElem.innerHTML = markup;
-  totalPages = Math.ceil(res.totalResults / PER_PAGE);
-
   checkObserverStatus();
+  e.target.reset();
 });
 
-async function loadMore() {
-  currentPage += 1;
-  vasya.unobserve(refs.targetElem);
-
-  const res = await fetchArticles(query, currentPage);
-  const markup = articlesTemplate(res.articles);
-  refs.articleListElem.insertAdjacentHTML('beforeend', markup);
-
-  checkObserverStatus();
-}
 //!=========================================
 
-const vasya = new IntersectionObserver(entries => {
-  const entry = entries[0];
-  if (entry.isIntersecting) {
-    console.log('Викликаю LoadMore');
-    loadMore();
+async function onLoadMore() {
+  page += 1;
+  checkObserverStatus();
+  try {
+    const res = await fetchArticles(query, page);
+    const markup = articlesTemplate(res.articles);
+    refs.articleListElem.insertAdjacentHTML('beforeend', markup);
+  } catch {}
+}
+
+//!=========================================
+const observer = new IntersectionObserver(entries => {
+  const target = entries[0];
+  if (target.isIntersecting) {
+    onLoadMore();
   }
 });
 
 function checkObserverStatus() {
-  console.log('Перевірка чи треба вирубати Васю');
-  if (currentPage >= totalPages) {
-    vasya.unobserve(refs.targetElem);
-    console.log('Вирубили Васю');
+  if (page < totalPages) {
+    console.log('СПОСТЕРІГАЙ');
+
+    observer.observe(refs.targetElem);
   } else {
-    console.log('Підняли Васю');
-    vasya.observe(refs.targetElem);
+    console.log('ДОСИТЬ СПОСТЕРІГАТИ');
+    observer.unobserve(refs.targetElem);
+  }
+
+  if (page === totalPages) {
+    console.log('The end');
   }
 }
